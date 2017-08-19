@@ -6,7 +6,7 @@ const mongoManager = rek('mongo-manager');
 const errorHandling  = rek('error-handling');
 
 
-const doInitalization = function() {
+const doInitalization = () => {
   return setupExpress
           .initialize()
           .then(setupExpress.preRoutesInitalization)

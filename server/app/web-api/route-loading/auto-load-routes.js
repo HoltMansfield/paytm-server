@@ -3,7 +3,7 @@ const rek = require('rekuire');
 const fs = require('fs');
 
 
-const checkRoute = function(file) {
+const checkRoute = file => {
   let shouldImportRoute = false;
 
   // file is not null
@@ -20,7 +20,7 @@ const checkRoute = function(file) {
   return shouldImportRoute;
 };
 
-const importRoutes = function(file, app) {
+const importRoutes = (file, app) => {
   if(checkRoute(file)) {
       let moduleName = file.replace('.js','');
       let routeModule = rek(moduleName);
@@ -29,7 +29,7 @@ const importRoutes = function(file, app) {
   }
 };
 
-const createRoutes = function(app) {
+const createRoutes = app => {
   return new Promise((resolve, reject) => {
     const srcpath = __dirname +'/..';
 

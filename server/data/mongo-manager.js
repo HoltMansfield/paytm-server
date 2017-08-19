@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const collections = rek('collection-manager');
 
-const initialize = function(app) {
+const initialize = app => {
   // make a synchronous call to import mongo models
   collections.importCollections();
 
@@ -16,7 +16,7 @@ const initialize = function(app) {
     .then(() => Promise.resolve(app));
 };
 
-const connect = function(app) {
+const connect = app => {
     if(mongoose.connection.readyState) {
       // we are already connected
       Promise.resolve(app);
@@ -25,7 +25,7 @@ const connect = function(app) {
     }
 };
 
-const disconnect = function() {
+const disconnect = () => {
   return new Promise((resolve, reject) => {
     mongoose.disconnect(() => {
       resolve(true);

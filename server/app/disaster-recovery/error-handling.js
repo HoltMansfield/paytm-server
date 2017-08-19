@@ -2,7 +2,7 @@ const rek = require('rekuire');
 
 const consoleMessages = rek('console-messages');
 
-const requestErrorHandler = function(err, req, res, next) {
+const requestErrorHandler = (err, req, res, next) => {
 const validationErrors = null;
 
   /*
@@ -27,7 +27,7 @@ const validationErrors = null;
   consoleMessages.error(err.message);
 };
 
-const errorHandler = function(err) {
+const errorHandler = err => {
   consoleMessages.error(err);
 };
 

@@ -6,7 +6,7 @@ const errorHandling  = rek('error-handling');
 const consoleMessages = rek('console-messages');
 
 // the first method called during server startup
-const initialize = function() {
+const initialize = () => {
   return new Promise((resolve, reject) => {
     const app = express();
 
@@ -15,7 +15,7 @@ const initialize = function() {
 };
 
 // Middleware that needs to be configured BEFORE routes are created
-const preRoutesInitalization = function(app) {
+const preRoutesInitalization = app => {
     return new Promise((resolve, reject) => {
       // parse application/json
       app.use(bodyParser.json())
@@ -25,7 +25,7 @@ const preRoutesInitalization = function(app) {
 };
 
 // Middleware that needs to be configured AFTER routes are created
-const postRoutesInitalization = function(app) {
+const postRoutesInitalization = app => {
     return new Promise((resolve, reject) => {
         /*
             api route handlers are the entry point to this api-server
@@ -41,7 +41,7 @@ const postRoutesInitalization = function(app) {
 };
 
 // The actual http listener
-const listen = function(app) {
+const listen = app => {
   return new Promise((resolve, reject) => {
     // default to port 300
     process.env.PORT = process.env.PORT || 3000;
