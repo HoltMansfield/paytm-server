@@ -1,0 +1,30 @@
+{
+  "name": "paytm-server",
+  "version": "1.0.0",
+  "description": "A node & Mongo RESTful API ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "debug": "node --inspect-brk server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HoltMansfield/paytm-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HoltMansfield/paytm-server/issues"
+  },
+  "homepage": "https://github.com/HoltMansfield/paytm-server#readme",
+  "dependencies": {
+    "beepbeep": "^1.2.1",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "chalk": "^2.1.0",
+    "config": "^1.26.2",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.7",
+    "rekuire": "^0.1.9"
+  }
+}
