@@ -11,11 +11,17 @@ const create = function(employee) {
   return employeeModel.save();
 };
 
+const update = function(user) {
+  // { new: true } will return the updated document
+  return Employee.findByIdAndUpdate(user._id, user, { new: true });
+};
+
 const find = function(query) {
   return Employee.find(query);
 };
 
 module.exports = {
-  create: create,
-  find: find
+  create,
+  find,
+  update
 };

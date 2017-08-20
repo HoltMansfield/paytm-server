@@ -50,7 +50,7 @@ describe('employees-repo', () => {
                     });
   });
 
-  it('creates ands queries an employee', done => {
+  it('creates and queries an employee', done => {
     // this test verifies the employee we created in the beforeEach
     const query = { _id: employees[0]._id };
 
@@ -63,5 +63,25 @@ describe('employees-repo', () => {
         done();
       })
       .catch(consoleMessages.logToConsole);
+  });
+
+  it('updates and queries an employee', done => {
+    // this test verifies the employee we created in the beforeEach
+    const query = { _id: employees[0]._id };
+    const updatedName = faker.name.firstName();
+    const employee = Object.assign(employees[0], { first: updatedName });
+
+    fixture.update(employee)
+      .then(() => {
+        fixture.find(query)
+          .then(results => {
+            expect(results.length).to.equal(1);
+            // mongos solution for id comparison
+            expect(results[0].first).to.equal(updatedName);
+
+            done();
+          })
+          .catch(consoleMessages.logToConsole);
+      });
   });
 });

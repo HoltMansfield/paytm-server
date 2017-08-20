@@ -12,6 +12,13 @@ const createRoutes = app => {
       .catch((err) => errorHandling.requestErrorHandler(err, req, res));
   });
 
+  // Update
+  app.put(baseUrl, (req, res, next) => {
+    employeeApi.update(req.body)
+      .then(employeeFromDb => res.json(employeeFromDb))
+      .catch((err) => errorHandling.requestErrorHandler(err, req, res));
+  });
+
   // Find
   app.post(baseUrl +'/query', (req, res, next) => {
     employeeApi.find(req.body)
