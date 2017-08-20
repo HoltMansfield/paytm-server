@@ -24,7 +24,8 @@ describe('employees-repo', () => {
     const testEmployee = {
       first: faker.name.firstName(),
       last: faker.name.lastName(),
-      email: faker.internet.email()
+      email: faker.internet.email(),
+      isAdmin: false
     };
 
     return fixture.create(testEmployee);
@@ -66,7 +67,6 @@ describe('employees-repo', () => {
   });
 
   it('updates and queries an employee', done => {
-    // this test verifies the employee we created in the beforeEach
     const query = { _id: employees[0]._id };
     const updatedName = faker.name.firstName();
     const employee = Object.assign(employees[0], { first: updatedName });
@@ -86,7 +86,6 @@ describe('employees-repo', () => {
   });
 
   it('deletes an employee', done => {
-    // this test verifies the employee we created in the beforeEach
     const query = { _id: employees[0]._id };
 
     fixture.deleteDocument(query)

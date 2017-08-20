@@ -17,6 +17,7 @@ const register = function() {
       email: { type: String, required: true, unique: true },
       first: { type: String },
       last: { type: String },
+      isAdmin: { type: Boolean },
 
       // the reviews for this employee
       reviews: { type: [Schema.ObjectId], ref: 'reviews' },
