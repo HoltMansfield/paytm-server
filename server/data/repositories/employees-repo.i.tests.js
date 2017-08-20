@@ -51,7 +51,7 @@ describe('employees-repo', () => {
   });
 
   it('creates ands queries an employee', done => {
-    // this test verifies the tweet we created in the beforeEach
+    // this test verifies the employee we created in the beforeEach
     const query = { _id: employees[0]._id };
 
     fixture.find(query)
