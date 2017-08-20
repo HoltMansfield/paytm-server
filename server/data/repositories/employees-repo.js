@@ -17,7 +17,7 @@ const update = function(user) {
 };
 
 const deleteDocument = function(query) {
-  return User.remove(query);
+  return Employee.remove(query);
 };
 
 const find = function(query) {

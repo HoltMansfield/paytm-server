@@ -80,8 +80,24 @@ describe('employees-repo', () => {
             expect(results[0].first).to.equal(updatedName);
 
             done();
-          })
-          .catch(consoleMessages.logToConsole);
-      });
+          });
+      })
+      .catch(consoleMessages.logToConsole);
+  });
+
+  it('deletes an employee', done => {
+    // this test verifies the employee we created in the beforeEach
+    const query = { _id: employees[0]._id };
+
+    fixture.deleteDocument(query)
+      .then(results => {
+        fixture.find(query)
+          .then(results => {
+            expect(results.length).to.equal(0);
+
+            done();
+          });
+      })
+      .catch(consoleMessages.logToConsole);
   });
 });
