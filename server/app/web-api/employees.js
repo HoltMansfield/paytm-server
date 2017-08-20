@@ -25,6 +25,13 @@ const createRoutes = app => {
       .then(results => res.json(results))
       .catch((err) => errorHandling.requestErrorHandler(err, req, res));
   });
+
+  // Delete
+  app.delete(baseUrl +'/query', (req, res, next) => {
+    employeeApi.deleteDocument(req.body)
+      .then(results => res.json(results))
+      .catch((err) => errorHandling.requestErrorHandler(err, req, res));
+  });
 };
 
 module.exports = {

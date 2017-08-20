@@ -16,12 +16,17 @@ const update = function(user) {
   return Employee.findByIdAndUpdate(user._id, user, { new: true });
 };
 
+const deleteDocument = function(query) {
+  return User.remove(query);
+};
+
 const find = function(query) {
   return Employee.find(query);
 };
 
 module.exports = {
   create,
-  find,
-  update
+  update,
+  deleteDocument,
+  find
 };
