@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server",
+    "mon": "nodemon server",
     "debug": "node --inspect-brk server",
     "test": "mocha 'server/**/*tests.js' --require test/mocha-prepare --reporter spec",
     "test-w": "mocha 'server/**/*tests.js' -w --require test/mocha-prepare --reporter spec",
@@ -26,6 +27,7 @@
     "body-parser": "^1.17.2",
     "chalk": "^2.1.0",
     "config": "^1.26.2",
+    "cors": "^2.8.4",
     "express": "^4.15.4",
     "mongoose": "^4.11.7",
     "rekuire": "^0.1.9"

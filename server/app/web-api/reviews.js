@@ -1,6 +1,6 @@
 const rek = require('rekuire');
 
-const reviewApi = rek('review-repo');
+const reviewApi = rek('reviews-repo');
 const errorHandling = rek('error-handling');
 const baseUrl = '/api/reviews';
 

@@ -5,27 +5,42 @@ const rek = require('rekuire');
 
 const Employee = mongoose.model('Employee');
 
-const create = function(employee) {
+const create = employee => {
   const employeeModel = new Employee(employee);
 
   return employeeModel.save();
 };
 
-const update = function(user) {
+const login = query => {
+  // this is obviously incredibly stupid and naive
+  return Employee.find(query)
+    .then(employees => {
+      console.log('query', query);
+      console.log('employees length:', employees.length);
+      if(employees.length == 1) {
+        return employees[0];
+      }
+
+      return undefined;
+    });
+}
+
+const update = employee => {
   // { new: true } will return the updated document
-  return Employee.findByIdAndUpdate(user._id, user, { new: true });
+  return Employee.findByIdAndUpdate(employee._id, user, { new: true });
 };
 
-const deleteDocument = function(query) {
+const deleteDocument = query => {
   return Employee.remove(query);
 };
 
-const find = function(query) {
+const find = query => {
   return Employee.find(query);
 };
 
 module.exports = {
   create,
+  login,
   update,
   deleteDocument,
   find

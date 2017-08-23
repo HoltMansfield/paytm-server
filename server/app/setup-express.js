@@ -1,4 +1,5 @@
 const Promise = require('bluebird');
+const cors = require('cors');
 const rek = require('rekuire');
 const express    = require('express');
 const bodyParser = require('body-parser')
@@ -17,8 +18,14 @@ const initialize = () => {
 // Middleware that needs to be configured BEFORE routes are created
 const preRoutesInitalization = app => {
     return new Promise((resolve, reject) => {
+      // enable CORS
+      app.use(cors());
+
       // parse application/json
-      app.use(bodyParser.json())
+      app.use(bodyParser.json());
+
+      // enable all options requests
+      app.options('*', cors());
 
       resolve(app);
     });
@@ -44,7 +51,7 @@ const postRoutesInitalization = app => {
 const listen = app => {
   return new Promise((resolve, reject) => {
     // default to port 300
-    process.env.PORT = process.env.PORT || 3000;
+    process.env.PORT = process.env.PORT || 5000;
 
     // default to the development environment
     process.env.NODE_ENV = 'development';

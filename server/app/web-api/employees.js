@@ -1,6 +1,6 @@
 const rek = require('rekuire');
 
-const employeeApi = rek('employee-repo');
+const employeeApi = rek('employees-repo');
 const errorHandling = rek('error-handling');
 const baseUrl = '/api/employees';
 
@@ -9,6 +9,14 @@ const createRoutes = app => {
   app.post(baseUrl, (req, res, next) => {
     employeeApi.create(req.body)
       .then(newEmployee => res.json(newEmployee))
+      .catch((err) => errorHandling.requestErrorHandler(err, req, res));
+  });
+
+  // Login
+  app.post(baseUrl +'/login', (req, res, next) => {
+    // this is obviously incredibly stupid and naive
+    employeeApi.login({ first: req.body.first, last: req.body.last })
+      .then(employeeFromDb => res.json(employeeFromDb))
       .catch((err) => errorHandling.requestErrorHandler(err, req, res));
   });
 
