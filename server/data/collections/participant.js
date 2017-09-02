@@ -3,11 +3,11 @@
 const mongoose = require('mongoose');
 const rek = require('rekuire');
 const Schema = mongoose.Schema;
-let isRegistered = mongoose.models.User; // if the model exists our flag initalizes true and the whole process is skipped
+let isRegistered = mongoose.models.Participant; // if the model exists our flag initalizes true and the whole process is skipped
 let schemaDefinition;
 
 
-const register = function() {
+const register = () => {
   // check if our schema has already been registered
   if(!isRegistered) {
 
@@ -15,16 +15,13 @@ const register = function() {
     schemaDefinition  = new Schema({
       dateCreated: { type: Date, default: Date.now },
       email: { type: String, required: true, unique: true },
+      password: { type: String, required: true },
       first: { type: String },
-      last: { type: String },
-      isAdmin: { type: Boolean },
-
-      // the reviews for this employee
-      reviews: { type: [Schema.ObjectId], ref: 'reviews' },
+      last: { type: String }
     });
 
     // register the schema with mongoose to 'create' a model
-    mongoose.model('Employee', schemaDefinition);
+    mongoose.model('Participant', schemaDefinition);
 
     isRegistered = true; // run this once
   }
@@ -32,4 +29,6 @@ const register = function() {
   return schemaDefinition;
 };
 
-module.exports.register = register;
+module.exports = {
+  register
+}
