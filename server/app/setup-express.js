@@ -2,6 +2,7 @@ const Promise = require('bluebird');
 const cors = require('cors');
 const rek = require('rekuire');
 const express    = require('express');
+const expressJwt = require('express-jwt');
 const bodyParser = require('body-parser')
 const errorHandling  = rek('error-handling');
 const consoleMessages = rek('console-messages');
@@ -26,6 +27,18 @@ const preRoutesInitalization = app => {
 
       // enable all options requests
       app.options('*', cors());
+
+      // parse all urls for JWT except routes included in 'path' below
+      app.use(expressJwt({ secret: 'toDo: use cert'})
+          .unless({
+            path:
+            [
+              // a user who is not logged in needs to be able to create an account
+              { url: '/api/participants', methods: ['POST']  },
+              // the actual login endpoint
+              { url: '/api/participants/authenticate', methods: ['POST']  },
+            ],
+          }));
 
       resolve(app);
     });

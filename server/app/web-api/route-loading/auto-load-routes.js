@@ -22,10 +22,12 @@ const checkRoute = file => {
 
 const importRoutes = (file, app) => {
   if(checkRoute(file)) {
-      let moduleName = file.replace('.js','');
-      let routeModule = rek(moduleName);
+    let moduleName = file.replace('.js','');
+    let routeModule = rek(moduleName);
 
+    if(typeof routeModule.createRoutes === 'function') {
       routeModule.createRoutes(app);
+    }
   }
 };
 

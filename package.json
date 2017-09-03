@@ -30,6 +30,8 @@
     "config": "^1.26.2",
     "cors": "^2.8.4",
     "express": "^4.15.4",
+    "express-jwt": "^5.3.0",
+    "jsonwebtoken": "^7.4.3",
     "mongoose": "^4.11.7",
     "rekuire": "^0.1.9"
   },
@@ -39,6 +41,7 @@
     "mocha": "^3.5.0",
     "mocha-prepare": "^0.1.0",
     "sinon": "^3.2.1",
-    "sinon-test": "^2.1.0"
+    "sinon-test": "^2.1.0",
+    "supertest": "^3.0.0"
   }
 }
