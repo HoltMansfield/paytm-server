@@ -2,8 +2,17 @@ const rek = require('rekuire');
 
 const consoleMessages = rek('console-messages');
 
+const mapMessages = message => {
+  switch(message) {
+    case 'E11000 duplicate key error collection: srs.participants index: email_1 dup key: { : "holtmansfield@gmail.com" }':
+      return 'An account already exists with that email'
+  }
+
+  return message
+}
+
 const requestErrorHandler = (err, req, res, next) => {
-const validationErrors = null;
+  const validationErrors = null;
 
   /*
       MongoDB tacks on errors property containing validation errors
@@ -19,8 +28,8 @@ const validationErrors = null;
   {
       success: false,
       name: err.name,
-      message: err.message,
-      stack: err.stack,
+      message: mapMessages(err.message),
+      stack: err.stack,//ToDo: check env var and only send in dev, staging
       validationErrors: validationErrors
   });
 

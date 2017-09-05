@@ -25,9 +25,7 @@ const importRoutes = (file, app) => {
     let moduleName = file.replace('.js','');
     let routeModule = rek(moduleName);
 
-    if(typeof routeModule.createRoutes === 'function') {
-      routeModule.createRoutes(app);
-    }
+    routeModule.createRoutes(app);
   }
 };
 
