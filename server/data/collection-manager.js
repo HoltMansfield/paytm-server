@@ -11,10 +11,16 @@ const createCollection = function(file) {
   const modulePath = './collections/' +modelName;
 
   // require in the module for this collection
-  const modelModule = require(modulePath);
+  const schema = require(modulePath);
 
-  // register the schema with mongoose
-  modelModule.register();
+  // check with mongoose if the schema has already been registered
+  if(!mongoose.models[modelName]) {
+    // register the schema with mongoose
+    mongoose.model(modelName, schema)
+  }
+
+  // // register the schema with mongoose
+  // modelModule.register();
 };
 
 const importCollections = function() {

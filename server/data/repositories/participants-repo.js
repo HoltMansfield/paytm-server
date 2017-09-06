@@ -3,7 +3,7 @@ const rek = require('rekuire');
 const mongoose = require('mongoose');
 
 const hasher = rek('password-hasher');
-const Participant = mongoose.model('Participant');
+const Participant = mongoose.model('participants');
 
 const createParticipantInDb = (createPasswordResult, participant) => {
   // read in the data from our hashing operation

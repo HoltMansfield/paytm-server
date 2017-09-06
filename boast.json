@@ -1,0 +1,25 @@
+{
+  "api": {
+    "language": "es5",
+    "paths": {
+      "routesPath": "server/app/web-api",
+      "routesTestsPath": "test/routes/",
+      "apiModulesPath": "server/data/repositories/"
+    }
+  },
+  "angular": {
+    "language": "es5",
+    "paths": {
+        "dataServices": "www/js/core/data/"
+      },
+      "modules": {
+        "dataServices": "pio.core.data"
+      }
+  },
+  "mongoose": {
+    "modelsPath": "/Users/erikaws/work/srs-patient-server/server/data/collections"
+  },
+  "build": {
+    "tool": "gulp"
+  }
+}
