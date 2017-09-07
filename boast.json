@@ -2,7 +2,7 @@
   "api": {
     "language": "es5",
     "paths": {
-      "routesPath": "server/app/web-api",
+      "routesPath": "server/app/web-api/",
       "routesTestsPath": "test/routes/",
       "apiModulesPath": "server/data/repositories/"
     }
