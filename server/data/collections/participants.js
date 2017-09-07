@@ -1,7 +1,4 @@
-/* all the models in the collections folder get processed for registration by collection-manager.js */
-
 const mongoose = require('mongoose');
-const rek = require('rekuire');
 const Schema = mongoose.Schema;
 
 module.exports = new Schema(
