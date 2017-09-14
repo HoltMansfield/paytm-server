@@ -121,7 +121,6 @@ const runTests = function(server) {
         .expect(200)
         .end((err, res) => {
           const verificationCodeFromServer = res.body[0];
-          console.log('\n verificationCodeFromServer %j \n', verificationCodeFromServer)
 
           expect(verificationCodeFromServer._id).to.equal(verificationCodes[0].id);
 

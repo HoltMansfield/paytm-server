@@ -7,11 +7,11 @@
     "start": "node server",
     "mon": "nodemon server",
     "debug": "node --inspect-brk server",
-    "test-unit-integration": "mocha 'server/**/*tests.js' --require tests/mocha-prepare --reporter spec",
-    "test-e2e": "mocha 'tests/**/*tests.js' --require mocha-prepare --reporter spec",
-    "test": "npm run test-unit-integration && npm run test-e2e",
-    "test-w": "mocha 'server/**/*tests.js' -w --require test/mocha-prepare --reporter spec",
-    "test-debug": "mocha 'tests/**/*tests.js' --inspect-brk --require tests/mocha-prepare --reporter spec",
+    "test-unit-integration": "NODE_ENV=test mocha 'server/**/*tests.js' --require tests/mocha-prepare --reporter spec",
+    "test-e2e": "NODE_ENV=test mocha 'tests/**/*tests.js' --require mocha-prepare --reporter spec",
+    "test": "NODE_ENV=test npm run test-unit-integration && npm run test-e2e",
+    "test-w": "NODE_ENV=test mocha 'server/**/*tests.js' -w --require test/mocha-prepare --reporter spec",
+    "test-debug": "NODE_ENV=test mocha 'tests/**/*tests.js' --inspect-brk --require tests/mocha-prepare --reporter spec",
     "boast": "node /usr/local/lib/node_modules/boast-cli"
   },
   "repository": {

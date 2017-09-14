@@ -1,5 +1,5 @@
 {
   "mongo": {
-    "connection": "mongodb://"
+    "connection": ""
   }
 }
