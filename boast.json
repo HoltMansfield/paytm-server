@@ -3,7 +3,7 @@
     "language": "es5",
     "paths": {
       "routesPath": "server/app/web-api/",
-      "routesTestsPath": "test/routes/",
+      "routesTestsPath": "tests/routes/",
       "apiModulesPath": "server/data/repositories/"
     }
   },

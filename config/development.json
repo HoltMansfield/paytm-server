@@ -1,5 +1,5 @@
 {
   "mongo": {
-    "connection": "mongodb://localhost:27017/srs"
+    "connection": "mongodb://localhost:27017/srs-1"
   }
 }

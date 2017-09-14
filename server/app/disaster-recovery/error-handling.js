@@ -12,7 +12,7 @@ const mapMessages = message => {
 }
 
 const requestErrorHandler = (err, req, res, next) => {
-  const validationErrors = null;
+  let validationErrors = null;
 
   /*
       MongoDB tacks on errors property containing validation errors
