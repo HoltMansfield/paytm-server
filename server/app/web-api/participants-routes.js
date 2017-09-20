@@ -11,11 +11,12 @@ const createRoutes = function(app) {
   // Create
   app.post(baseUrl, (req, res, next) => {
     participantsApi.create(req.body)
-      .then(newParticipant => {
-        const token = jwt.sign(newParticipant, 'toDo: use cert');
+      .then(data => {
+        const token = jwt.sign(data, 'toDo: use cert');
+        const { email } = data
 
         return res.json({
-          user: newParticipant,
+          user: { email },
           jwt: token
         });
       })
@@ -46,7 +47,15 @@ const createRoutes = function(app) {
   // Login
   app.post(baseUrl +'/authenticate', (req, res, next) => {
     participantsApi.authenticateParticipant(req.body)
-      .then(data => res.json(data))
+      .then(data => {
+        const token = jwt.sign(data, 'toDo: use cert');
+        const { email } = data
+
+        return res.json({
+          user: { email },
+          jwt: token
+        });
+      })
       .catch((err) => errorHandling.requestErrorHandler(err, req, res));
   });
 

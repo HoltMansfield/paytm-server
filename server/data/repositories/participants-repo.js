@@ -44,6 +44,13 @@ const authenticateParticipant = function(authenticationAttempt) {
   return Participant.findOne({ email: authenticationAttempt.email })
           .then(participantFromDb => {
             return hasher.comparePassword(authenticationAttempt.password, participantFromDb.salt, participantFromDb.password)
+              .then(isAuthenticated => {
+                if(isAuthenticated) {
+                  return participantFromDb;
+                }
+
+                throw new Error('Email or Passwors are incorrect');
+              });
           });
 };
 

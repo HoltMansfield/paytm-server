@@ -18,9 +18,6 @@ const createCollection = function(file) {
     // register the schema with mongoose
     mongoose.model(modelName, schema)
   }
-
-  // // register the schema with mongoose
-  // modelModule.register();
 };
 
 const importCollections = function() {
