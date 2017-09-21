@@ -13,10 +13,10 @@ const createRoutes = function(app) {
     participantsApi.create(req.body)
       .then(data => {
         const token = jwt.sign(data, 'toDo: use cert');
-        const { email } = data
+        const { email, _id } = data
 
         return res.json({
-          user: { email },
+          user: { email, _id },
           jwt: token
         });
       })
@@ -49,10 +49,10 @@ const createRoutes = function(app) {
     participantsApi.authenticateParticipant(req.body)
       .then(data => {
         const token = jwt.sign(data, 'toDo: use cert');
-        const { email } = data
+        const { email, _id } = data
 
         return res.json({
-          user: { email },
+          user: { email, _id },
           jwt: token
         });
       })

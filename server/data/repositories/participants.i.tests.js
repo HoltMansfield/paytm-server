@@ -76,8 +76,6 @@ describe('participants-api', () => {
         password: testParticipantPassword
       })
       .then(authenticationResult => {
-        console.log('\n  authenticationResult %j  \n', authenticationResult)
-        console.log('\n  testParticipant %j  \n', testParticipant)
         expect(authenticationResult._id.equals(testParticipant._id)).to.be.true;
         done();
       })
