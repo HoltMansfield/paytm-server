@@ -172,7 +172,7 @@ const runTests = function(server) {
 
           const responseValue = res.body;
 
-          expect(responseValue.user._id).to.deep.equal(participants[0].id);
+          expect(responseValue.user.email).to.equal(participants[0].email);
           done();
         });
     });
